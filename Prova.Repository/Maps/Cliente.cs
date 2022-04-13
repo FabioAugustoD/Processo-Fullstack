@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prova.Repository.Maps
+namespace Prova.Repository
 {
     public class ClienteMap : BaseDomainMap<Cliente>
     {
@@ -15,6 +15,10 @@ namespace Prova.Repository.Maps
        public override void Configure(EntityTypeBuilder<Cliente> builder)
         {
             base.Configure(builder);
+
+            builder.Property(x => x.Nome).HasColumnName("nome").HasMaxLength(200).IsRequired();
+            builder.Property(x => x.Cpf).HasColumnName("cpf").HasMaxLength(11).IsRequired();
+            builder.Property(x => x.DataNascimento).HasColumnName("dataNasc").IsRequired();
         }
     }
 }

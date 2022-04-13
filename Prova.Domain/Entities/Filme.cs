@@ -10,6 +10,7 @@ namespace Prova.Domain
     {      
         public string Titulo { get; set; }
         public int ClassificacaoIndicativa { get; set; }
-        public int Lancamento { get; set; }
+        public TipoFilmeEnum Lancamento { get; set; }
+        public virtual List<Locacao> Locacoes { get; set; }
     }
 }

@@ -11,5 +11,7 @@ namespace Prova.Domain
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
+        public virtual List<Locacao> Locacoes { get; set; }
+
     }
 }

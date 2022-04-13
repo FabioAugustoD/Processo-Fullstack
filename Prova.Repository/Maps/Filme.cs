@@ -15,6 +15,11 @@ namespace Prova.Repository.Maps
        public override void Configure(EntityTypeBuilder<Filme> builder)
         {
             base.Configure(builder);
+
+            builder.Property(x => x.Titulo).HasColumnName("titulo").HasMaxLength(100).IsRequired();
+            builder.Property(x => x.ClassificacaoIndicativa).HasColumnName("classificacao").IsRequired();
+            builder.Property(x => x.Lancamento).HasColumnName("lancamento").IsRequired();
+
         }
     }
 }

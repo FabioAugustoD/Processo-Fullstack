@@ -16,6 +16,11 @@ namespace Prova.Repository.Maps
         {
             base.Configure(builder);
 
+            builder.Property(x => x.IdCliente).HasColumnName("id_cliente").IsRequired();
+            builder.HasOne(x => x.Cliente).WithMany(x => x.Locacoes).HasForeignKey(x => x.IdCliente);
+
+            builder.Property(x => x.IdFilme).HasColumnName("id_filme").IsRequired();
+            builder.HasOne(x => x.Filme).WithMany(x => x.Locacoes).HasForeignKey(x => x.IdFilme);
         }
     }
 }

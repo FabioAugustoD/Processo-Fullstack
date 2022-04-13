@@ -24,6 +24,9 @@ namespace Prova.Repository
             {
                 builder.ToTable(_tableName);
             }
+
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).HasColumnName("Id").ValueGeneratedOnAdd();
         }
     }
 }
