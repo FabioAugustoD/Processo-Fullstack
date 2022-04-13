@@ -6,22 +6,33 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Prova.Repository;
 using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace Prova.API
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public DbConnection DbConnection => new SqlConnection(Configuration.GetConnectionString("App"));
+
+
         public Startup(IConfiguration configuration)
         {
            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("App")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseMySQL(DbConnection,
+                    assembly => assembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+            });
+
+            
 
             DependencyInjection.Register(services);
 

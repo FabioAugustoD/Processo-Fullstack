@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Prova.Domain
+{
+    public class Filme : BaseDomain
+    {      
+        public string Titulo { get; set; }
+        public int ClassificacaoIndicativa { get; set; }
+        public int Lancamento { get; set; }
+    }
+}
