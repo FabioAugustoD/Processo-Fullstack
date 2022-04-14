@@ -15,6 +15,10 @@ namespace Prova.Domain
         public int IdFilme { get; set; }
 
         public virtual Filme Filme { get; set; }
+
+        public DateTime DataLocacao { get; set; }
+
+        public DateTime DataDevolucao { get; set; }
        
     }
 }

@@ -28,7 +28,7 @@ namespace Prova.API
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseMySQL(DbConnection,
+                options.UseSqlServer(DbConnection,
                     assembly => assembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
             });
 

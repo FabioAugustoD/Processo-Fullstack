@@ -21,6 +21,9 @@ namespace Prova.Repository.Maps
 
             builder.Property(x => x.IdFilme).HasColumnName("id_filme").IsRequired();
             builder.HasOne(x => x.Filme).WithMany(x => x.Locacoes).HasForeignKey(x => x.IdFilme);
+
+            builder.Property(x => x.DataLocacao).HasColumnName("data_locacao").IsRequired();
+            builder.Property(x => x.DataDevolucao).HasColumnName("data_devolucao").IsRequired();
         }
     }
 }
