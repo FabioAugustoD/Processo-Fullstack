@@ -11,7 +11,7 @@ namespace Prova.Repository.Maps
 {
     public class LocacaoMap : BaseDomainMap<Locacao>
     {
-       LocacaoMap() : base("tb_locacao") { }
+       public LocacaoMap() : base("tb_locacao") { }
        public override void Configure(EntityTypeBuilder<Locacao> builder)
         {
             base.Configure(builder);
@@ -21,6 +21,9 @@ namespace Prova.Repository.Maps
 
             builder.Property(x => x.IdFilme).HasColumnName("id_filme").IsRequired();
             builder.HasOne(x => x.Filme).WithMany(x => x.Locacoes).HasForeignKey(x => x.IdFilme);
+
+            builder.Property(x => x.DataLocacao).IsRequired();
+            builder.Property(x => x.DataDevolucao).IsRequired();
         }
     }
 }

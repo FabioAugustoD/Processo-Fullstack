@@ -11,7 +11,7 @@ namespace Prova.Repository.Maps
 {
     public class FilmeMap : BaseDomainMap<Filme>
     {
-       FilmeMap() : base("tb_filme") { }
+        public FilmeMap() : base("tb_filme") { }
        public override void Configure(EntityTypeBuilder<Filme> builder)
         {
             base.Configure(builder);

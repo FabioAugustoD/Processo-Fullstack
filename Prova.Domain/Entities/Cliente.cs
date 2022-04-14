@@ -8,10 +8,10 @@ namespace Prova.Domain
 {
     public class Cliente : BaseDomain
     {      
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
+        public string? Nome { get; set; }
+        public string? Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
-        public virtual List<Locacao> Locacoes { get; set; }
+        public virtual List<Locacao>? Locacoes { get; set; }
 
     }
 }

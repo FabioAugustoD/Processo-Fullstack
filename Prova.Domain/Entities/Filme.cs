@@ -8,9 +8,9 @@ namespace Prova.Domain
 {
     public class Filme : BaseDomain
     {      
-        public string Titulo { get; set; }
+        public string? Titulo { get; set; }
         public int ClassificacaoIndicativa { get; set; }
         public TipoFilmeEnum Lancamento { get; set; }
-        public virtual List<Locacao> Locacoes { get; set; }
+        public virtual List<Locacao>? Locacoes { get; set; }
     }
 }
