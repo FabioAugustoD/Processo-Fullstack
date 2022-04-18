@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Prova.Interface;
+using Prova.Repository;
 
 namespace Prova.API
 {
@@ -12,6 +14,7 @@ namespace Prova.API
 
         public static void RepositoryDependence (IServiceCollection serviceProvider)
         {
+            serviceProvider.AddScoped<ILocacaoRepository, LocacaoRepository>();
 
         }
     }

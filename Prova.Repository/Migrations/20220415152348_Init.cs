@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -13,11 +14,11 @@ namespace Prova.Repository.Migrations
                 name: "tb_cliente",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    nome = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    cpf = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    dataNasc = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nome = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    cpf = table.Column<string>(type: "character varying(11)", maxLength: 11, nullable: false),
+                    dataNasc = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,11 +29,11 @@ namespace Prova.Repository.Migrations
                 name: "tb_filme",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    titulo = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    classificacao = table.Column<int>(type: "int", nullable: false),
-                    lancamento = table.Column<byte>(type: "tinyint", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    titulo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    classificacao = table.Column<int>(type: "integer", nullable: false),
+                    lancamento = table.Column<byte>(type: "smallint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,12 +44,12 @@ namespace Prova.Repository.Migrations
                 name: "tb_locacao",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    id_cliente = table.Column<int>(type: "int", nullable: false),
-                    id_filme = table.Column<int>(type: "int", nullable: false),
-                    DataLocacao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    id_cliente = table.Column<int>(type: "integer", nullable: false),
+                    id_filme = table.Column<int>(type: "integer", nullable: false),
+                    DataLocacao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DataDevolucao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

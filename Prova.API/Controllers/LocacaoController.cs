@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Prova.Domain;
+using Prova.Interface;
 
 namespace Prova.API.Controllers
 {
-    [ApiController]
+    [ApiController]    
     [Route("[controller]")]
     public class LocacaoController : AppBaseController
     {
@@ -10,5 +13,12 @@ namespace Prova.API.Controllers
         { 
         }
 
+        [HttpGet]
+        public IEnumerable<Locacao> Get()
+        {
+            var rep = (ILocacaoRepository)ServiceProvider.GetService(typeof(ILocacaoRepository));
+            return rep.Get();
+
+        }
     }
 }

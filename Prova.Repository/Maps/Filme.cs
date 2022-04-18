@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prova.Repository.Maps
+namespace Prova.Repository
 {
     public class FilmeMap : BaseDomainMap<Filme>
     {

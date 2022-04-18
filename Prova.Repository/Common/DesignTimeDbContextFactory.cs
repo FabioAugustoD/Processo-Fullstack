@@ -21,7 +21,7 @@ namespace Prova.Repository
             var connectionString = config.GetConnectionString("App");
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            builder.UseSqlServer(connectionString);
+            builder.UseNpgsql(connectionString);
             
             return new ApplicationDbContext(builder.Options);
         }
